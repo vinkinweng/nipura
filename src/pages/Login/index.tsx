@@ -1,85 +1,47 @@
-import { useState } from "react";
-import { message } from "antd";
-
+import { Form, Input, Button } from "antd";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import "./Login.css";
 
+type FieldType = {
+    username?: string;
+    password?: string;
+    remember?: string;
+};
+
 function Login() {
-    const [username, setUsername] = useState("admin");
-    const [password, setPassword] = useState("123456");
-    const [loading, setLoading] = useState(false);
-    async function handleLogin() {
-        if (!username.trim() || !password) {
-            message.warning("请输入用户名和密码");
-            return;
-        }
-
-        try {
-            setLoading(true);
-
-            const response = await loginApi({
-                username,
-                password,
-            });
-
-            const result = response.data;
-
-            if (result.code !== 200) {
-                message.error(result.message || "登录失败");
-                return;
-            }
-
-            setLoginInfo(result.data.token, result.data.user);
-
-            message.success("登录成功");
-        } catch {
-            message.error("登录请求失败，请检查 Mock 地址和接口配置");
-        } finally {
-            setLoading(false);
-        }
+    const onFinish = () => {
+        console.log("login")
     }
-
     return (
-        <main className="login-page">
-            <section className="login-card">
-                <div className="login-logo">N</div>
+        <div className="login-page flex-center ">
+            <div className="login-card">
+                <h1 className="login-title flex-center ">
+                    <img src="/nipura-logo-80.png" />
+                    <p>業務支援システム</p>
+                </h1>
 
-                <h1>Nexus</h1>
-                <p>企业管理系统</p>
 
-                <label className="login-label" htmlFor="username">
-                    用户名
-                </label>
-
-                <input
-                    id="username"
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
-                    placeholder="请输入用户名"
-                    autoComplete="username"
-                />
-
-                <label className="login-label" htmlFor="password">
-                    密码
-                </label>
-
-                <input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                    placeholder="请输入密码"
-                    autoComplete="current-password"
-                />
-
-                <button
-                    type="button"
-                    onClick={handleLogin}
-                    disabled={loading}
+                <Form
+                    name="login"
+                    layout="vertical"
+                    initialValues={{ remember: true }}
+                    onFinish={onFinish}
                 >
-                    {loading ? "登录中..." : "登录"}
-                </button>
-            </section>
-        </main>
+
+                    <Form.Item<FieldType> label="アカウント" name="username" rules={[{ required: true, message: 'アカウントを入力してください' }]}>
+                        <Input prefix={<UserOutlined />} size="large" placeholder="アカウントを入力" />
+                    </Form.Item>
+                    <Form.Item<FieldType> label="パスワード" name="password" rules={[{ required: true, message: 'パスワードを入力してください' }]}>
+                        <Input prefix={<LockOutlined />} size="large" placeholder="Bパスワードを入力" />
+                    </Form.Item>
+                    <Form.Item label={null}>
+                        <Button block type="primary" htmlType="submit">
+                            ログイン
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </div >
     );
 }
 
