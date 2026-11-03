@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Form, message, Input, Button } from "antd";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
@@ -12,19 +12,19 @@ interface FieldType {
 
 function Login() {
     const navigate = useNavigate();
+    const location = useLocation();
+
     const login = useAuthStore(state => state.login)
     const onFinish = async (values: FieldType) => {
         try {
             const response = await api_login(values);
-            console.log("登录返回：", response)
             login(response.data.token, response.data.user);
-            console.log("3. Zustand 状态：", useAuthStore.getState());
+            // 1. 获取登录前想访问的页面
+            const from = location.state?.from?.pathname || "/dashboard";
 
-            console.log("4. LocalStorage：",
-                localStorage.getItem("nipura-auth-storage")
-            );
+            // 2. 登录成功后跳转
+            navigate(from, { replace: true });
             message.success("ログインしました");
-            navigate("/dashboard", { replace: true });
         } catch (error) {
             console.error("登录失败：", error);
             message.error("ログインに失敗しました");
@@ -50,7 +50,7 @@ function Login() {
                         <Input prefix={<UserOutlined />} size="large" placeholder="アカウントを入力" />
                     </Form.Item>
                     <Form.Item<FieldType> label="パスワード" name="password" rules={[{ required: true, message: 'パスワードを入力してください' }]}>
-                        <Input prefix={<LockOutlined />} size="large" placeholder="Bパスワードを入力" />
+                        <Input prefix={<LockOutlined />} size="large" placeholder="パスワードを入力" />
                     </Form.Item>
                     <Form.Item label={null}>
                         <Button block type="primary" htmlType="submit">
