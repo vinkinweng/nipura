@@ -29,7 +29,8 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
     (response) => {
-        return Promise.reject(response);
+        console.log(response)
+        return response.data;
     },
     (error) => {
         return Promise.reject(error);

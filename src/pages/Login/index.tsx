@@ -1,16 +1,34 @@
-import { Form, Input, Button } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Form, message, Input, Button } from "antd";
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import "./Login.css";
 
-type FieldType = {
-    username?: string;
-    password?: string;
-    remember?: string;
+import { api_login } from "@/api/auth.ts"
+import { useAuthStore } from "@/stores/authStore";
+import "./Login.css";
+interface FieldType {
+    username: string;
+    password: string;
 };
 
 function Login() {
-    const onFinish = () => {
-        console.log("login")
+    const navigate = useNavigate();
+    const login = useAuthStore(state => state.login)
+    const onFinish = async (values: FieldType) => {
+        try {
+            const response = await api_login(values);
+            console.log("登录返回：", response)
+            login(response.data.token, response.data.user);
+            console.log("3. Zustand 状态：", useAuthStore.getState());
+
+            console.log("4. LocalStorage：",
+                localStorage.getItem("nipura-auth-storage")
+            );
+            message.success("ログインしました");
+            navigate("/dashboard", { replace: true });
+        } catch (error) {
+            console.error("登录失败：", error);
+            message.error("ログインに失敗しました");
+        }
     }
     return (
         <div className="login-page flex-center ">
