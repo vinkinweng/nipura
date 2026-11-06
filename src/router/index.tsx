@@ -4,6 +4,7 @@ import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/NotFound";
 import AuthGuard from "./AuthGuard";
+import BasicLayout from "@/pages/BasicLayout";
 
 export const router = createBrowserRouter([
     {
@@ -18,8 +19,17 @@ export const router = createBrowserRouter([
         element: <AuthGuard />,
         children: [
             {
-                path: "/dashboard",
-                element: <Dashboard />
+                element: <BasicLayout />,
+                children: [
+                    {
+                        index: true,  //默认子路由
+                        element: <Navigate to="/dashboard" replace />
+                    },
+                    {
+                        path: "/dashboard",
+                        element: <Dashboard />
+                    }
+                ]
             }
         ]
     },
