@@ -1,0 +1,31 @@
+.layout-sider {
+    width: 400px;
+    height: 100%;
+    min-height: 100vh;
+    background: var(--bg-color);
+    padding: 24px 14px;
+
+    /* 消除组件与背景相交的线 */
+    .ant-menu-css-var.side_menu {
+        border: none;
+        background: var(--bg-color);
+
+        /* 小标题 */
+        .ant-menu-item-group-title {
+            font-size: 12px;
+            padding-top: 20px;
+            padding-bottom: 0;
+        }
+
+        .ant-menu-item-selected,
+        .ant-menu-item-active {
+            box-shadow: -4px 0px #86ae38;
+
+
+        }
+
+        .ant-menu-item-icon {
+            margin-left: -10px;
+        }
+    }
+}

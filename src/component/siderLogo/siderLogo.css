@@ -1,0 +1,22 @@
+.side-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 28px;
+
+    img {
+        width: 42px;
+        margin-right: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        margin-top: 2px;
+        font-size: 12px;
+        color: #666;
+    }
+}
