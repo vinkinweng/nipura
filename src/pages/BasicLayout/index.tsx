@@ -5,7 +5,7 @@ import { Button, Layout, theme } from 'antd';
 
 
 import LayoutContent from "@/component/layoutContent";
-import LayoutSider from "@/component/sider";
+import LayoutSider from "@/component/layoutSider";
 import LayoutHeader from "@/component/layoutheader";
 
 const { Header, Sider, Content } = Layout;
