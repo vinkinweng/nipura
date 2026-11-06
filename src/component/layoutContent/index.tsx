@@ -1,8 +1,14 @@
 import "./layoutContent.css"
-const LayoutContent: React.FC = () => {
+import { Layout, theme } from "antd";
 
+
+const { Content } = Layout;
+const LayoutContent: React.FC = () => {
+    const { token } = theme.useToken();
     return (
-        <div>conter</div>
+        <Content style={{ background: token.colorBgContainer, borderRadius: token.borderRadiusLG, }}>
+            content
+        </Content>
     );
 };
 
