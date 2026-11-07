@@ -1,5 +1,6 @@
 import "./layoutSider.css"
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Layout, Menu, ConfigProvider } from 'antd';
 import type { MenuProps } from 'antd';
 import { HomeIcon, TaskIcon, CalendarIcon, AddIcon, ToolIcon, PeopleIcon } from "../MyIcon";
@@ -40,6 +41,13 @@ const LayoutSider: React.FC<LayoutSiderProps> = ({
     collapsed,
     onCollapse
 }) => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    // 点击菜单时执行
+    const handleMenuClick: MenuProps["onClick"] = ({ key }) => {
+        navigate(key);
+    };
+
     return (
         < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={collapsed} onCollapse={onCollapse} className="layout-sider" width={238}>
             <ConfigProvider
@@ -59,7 +67,13 @@ const LayoutSider: React.FC<LayoutSiderProps> = ({
                 }}
             >
                 <SiderLogo />
-                <Menu mode="inline" defaultSelectedKeys={['/dashboard']} items={menuList} className="side_menu" />
+                <Menu mode="inline"
+                    defaultSelectedKeys={['/dashboard']}
+                    items={menuList}
+                    className="side_menu"
+                    selectedKeys={[location.pathname]}
+                    onClick={handleMenuClick}
+                />
             </ConfigProvider>
         </Sider >
     );

@@ -5,6 +5,11 @@ import Dashboard from "@/pages/Dashboard";
 import NotFound from "@/pages/NotFound";
 import AuthGuard from "./AuthGuard";
 import BasicLayout from "@/pages/BasicLayout";
+import Cases from "@/pages/Cases";
+import CalendarPage from "@/pages/CalendarPage"
+import Repair from "@/pages/Repair"
+import Dispatch from "@/pages/Dispatch"
+import Employees from "@/pages/Employees"
 
 export const router = createBrowserRouter([
     {
@@ -28,6 +33,26 @@ export const router = createBrowserRouter([
                     {
                         path: "/dashboard",
                         element: <Dashboard />
+                    },
+                    {
+                        path: "/cases",
+                        element: <Cases />
+                    },
+                    {
+                        path: "/calendar",
+                        element: <CalendarPage />,
+                    },
+                    {
+                        path: "/repair",
+                        element: <Repair />
+                    },
+                    {
+                        path: "/dispatch",
+                        element: <Dispatch />
+                    },
+                    {
+                        path: "/employees",
+                        element: <Employees />
                     }
                 ]
             }
