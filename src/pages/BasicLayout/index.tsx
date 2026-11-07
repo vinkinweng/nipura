@@ -12,7 +12,7 @@ const BasicLayout: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
     return (
         <Layout >
-            <LayoutSider collapsed={collapsed} />
+            <LayoutSider collapsed={collapsed} onCollapse={setCollapsed} />
             <Layout>
                 <LayoutHeader collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
                 <LayoutContent />

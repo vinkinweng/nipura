@@ -34,12 +34,14 @@ const menuList: MenuProps['items'] = [
 ];
 interface LayoutSiderProps {
     collapsed: boolean;
+    onCollapse: (collapsed: boolean) => void;
 }
 const LayoutSider: React.FC<LayoutSiderProps> = ({
     collapsed,
+    onCollapse
 }) => {
     return (
-        < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={collapsed} className="layout-sider" width={238}>
+        < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={collapsed} onCollapse={onCollapse} className="layout-sider" width={238}>
             <ConfigProvider
                 theme={{
                     components: {
