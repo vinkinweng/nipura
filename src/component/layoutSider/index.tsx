@@ -1,4 +1,5 @@
 import "./layoutSider.css"
+import React from "react";
 import { Layout, Menu, ConfigProvider } from 'antd';
 import type { MenuProps } from 'antd';
 import { HomeIcon, TaskIcon, CalendarIcon, AddIcon, ToolIcon, PeopleIcon } from "../MyIcon";
@@ -31,9 +32,14 @@ const menuList: MenuProps['items'] = [
         ],
     },
 ];
-const LayoutSider: React.FC = () => {
+interface LayoutSiderProps {
+    collapsed: boolean;
+}
+const LayoutSider: React.FC<LayoutSiderProps> = ({
+    collapsed,
+}) => {
     return (
-        < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={false} className="layout-sider" width={238}>
+        < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={collapsed} className="layout-sider" width={238}>
             <ConfigProvider
                 theme={{
                     components: {

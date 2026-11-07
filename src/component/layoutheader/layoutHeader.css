@@ -1,0 +1,20 @@
+/* 手机 */
+@media (max-width: 767px) {
+    .header {
+        padding: 0 15px;
+    }
+}
+
+/* iPad 竖屏及小屏设备 */
+@media (min-width: 768px) and (max-width: 991px) {
+    .header {
+        padding: 0 22px;
+    }
+}
+
+/* iPad 横屏及小屏电脑 */
+@media (min-width: 992px) {
+    .header {
+        padding: 0 32px;
+    }
+}

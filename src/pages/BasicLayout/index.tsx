@@ -1,4 +1,5 @@
 import "./basiclayout.css"
+import { useState } from "react";
 import { Layout } from 'antd';
 
 
@@ -8,12 +9,12 @@ import LayoutHeader from "@/component/layoutheader";
 
 
 const BasicLayout: React.FC = () => {
-
+    const [collapsed, setCollapsed] = useState(false);
     return (
         <Layout >
-            <LayoutSider />
+            <LayoutSider collapsed={collapsed} />
             <Layout>
-                <LayoutHeader />
+                <LayoutHeader collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
                 <LayoutContent />
             </Layout>
         </Layout>
