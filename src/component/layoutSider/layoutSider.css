@@ -1,15 +1,16 @@
 .layout-sider {
-    width: 400px;
     height: 100%;
     min-height: 100vh;
     background: var(--bg-color);
 
+    .sider-inner {
+        padding: 24px 14px;
+    }
 
     /* 消除组件与背景相交的线 */
     .ant-menu-css-var.side_menu {
         border: none;
         background: var(--bg-color);
-        padding: 24px 14px;
 
         /* 小标题 */
         .ant-menu-item-group-title {

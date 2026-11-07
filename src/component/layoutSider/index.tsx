@@ -50,31 +50,34 @@ const LayoutSider: React.FC<LayoutSiderProps> = ({
 
     return (
         < Sider trigger={null} breakpoint="md" collapsedWidth="0" collapsed={collapsed} onCollapse={onCollapse} className="layout-sider" width={238}>
-            <ConfigProvider
-                theme={{
-                    components: {
-                        Menu: {
-                            itemColor: "var(--font-color)",
-                            itemBg: "var(--bg-color)",
-                            itemSelectedColor: "var(--font-color)",
-                            itemSelectedBg: "var(--bg1-color)",
-                            itemHoverBg: "var(--bg1-color)",
-                            itemActiveBg: 'var(--bg1-color)',
-                            itemMarginInline: 0,
+            <div className="sider-inner">
+                <ConfigProvider
+                    theme={{
+                        components: {
+                            Menu: {
+                                itemColor: "var(--font-color)",
+                                itemBg: "var(--bg-color)",
+                                itemSelectedColor: "var(--font-color)",
+                                itemSelectedBg: "var(--bg1-color)",
+                                itemHoverBg: "var(--bg1-color)",
+                                itemActiveBg: 'var(--bg1-color)',
+                                itemMarginInline: 0,
 
+                            },
                         },
-                    },
-                }}
-            >
-                <SiderLogo />
-                <Menu mode="inline"
-                    defaultSelectedKeys={['/dashboard']}
-                    items={menuList}
-                    className="side_menu"
-                    selectedKeys={[location.pathname]}
-                    onClick={handleMenuClick}
-                />
-            </ConfigProvider>
+                    }}
+                >
+
+                    <SiderLogo />
+                    <Menu mode="inline"
+                        items={menuList}
+                        className="side_menu"
+                        selectedKeys={[location.pathname]}
+                        onClick={handleMenuClick}
+                    />
+
+                </ConfigProvider>
+            </div>
         </Sider >
     );
 };
