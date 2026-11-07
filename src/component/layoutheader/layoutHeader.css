@@ -1,3 +1,79 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .right,
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+
+    .right {
+        .header-serach {
+            width: 240px;
+        }
+
+        .user-dropdown {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            cursor: pointer;
+            gap: 20px;
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .avatar {
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: var(--font-color);
+                    background-color: var(--bg-color);
+                    flex-shrink: 0;
+                }
+
+                .user-text {
+                    display: flex;
+                    flex-direction: column;
+
+                    /* 用户名 */
+                    .user-name {
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 1.4;
+                        color: #25354c;
+                        white-space: nowrap;
+                    }
+
+                    /* 职位 */
+                    .user-description {
+                        line-height: 1.4;
+                        color: #929fb1;
+                        white-space: nowrap;
+                    }
+                }
+
+                /* 右侧箭头 */
+                .user-arrow {
+                    color: #64748b;
+                    font-size: 18px;
+                    margin-left: 6px;
+                }
+
+            }
+        }
+    }
+
+
+
+
+
+}
+
 /* 手机 */
 @media (max-width: 767px) {
     .header {
