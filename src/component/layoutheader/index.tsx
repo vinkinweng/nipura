@@ -1,10 +1,9 @@
 import "./layoutHeader.css"
-import React, { useState } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined, SearchOutlined, DownOutlined } from '@ant-design/icons';
-import { Button, Layout, theme, Grid, Breadcrumb, Input, Badge, Dropdown, Avatar, } from 'antd';
+import { Button, Layout, theme, Grid, Input, Badge, Dropdown, Avatar, } from 'antd';
 import type { MenuProps } from 'antd';
 import { BellIcon, PeopleIcon, SettingsIcon, SignOutIcon } from "@/component/MyIcon"
-
+import LayoutBreadcrumb from "@/component/layoutBreadcrumb";
 const { Header } = Layout;
 const dropdownItems: MenuProps['items'] = [
     {
@@ -69,8 +68,7 @@ const LayoutHeader: React.FC<LayoutHeaderProps> = ({
                         onClick={onToggle}
                         className="menu_button" />
                 )}
-                <Breadcrumb style={{ margin: '16px 0' }} items={[{ title: 'Workspace' }, { title: 'Bill' }]} />
-
+                <LayoutBreadcrumb />
             </div>
             <div className="right">
                 <Input size="medium" placeholder="案件・施設を検索" prefix={<SearchOutlined />} className='header-serach' />
