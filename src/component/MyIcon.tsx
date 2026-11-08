@@ -77,9 +77,9 @@ const ToolSvg: React.FC = () => (
 );
 const WarnSvg: React.FC = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 12C2 17.5192 6.48085 22 12 22C17.5192 22 22 17.5192 22 12C22 6.48085 17.5192 2 12 2C6.48085 2 2 6.48085 2 12V12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M12 8V12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M12 16H12.01" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
+        <path d="M2 12C2 17.5192 6.48085 22 12 22C17.5192 22 22 17.5192 22 12C22 6.48085 17.5192 2 12 2C6.48085 2 2 6.48085 2 12V12" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M12 8V12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M12 16H12.01" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
     </svg>
 
 );
@@ -100,6 +100,22 @@ const SignOutSvg: React.FC = () => (
 
 
 );
+
+
+const ClockSvg: React.FC = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0Z" />
+        <path d="M12 6v6l4.5 0" />
+    </svg>
+)
+const ArrowRightSvg: React.FC = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 12h14" />
+        <path d="m12 5 7 7-7 7" />
+    </svg>
+)
+
+
 export const AddIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={AddSvg} {...props} />
 );
@@ -137,5 +153,12 @@ export const SettingsIcon: React.FC<Partial<CustomIconComponentProps>> = (props)
 );
 export const SignOutIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={SignOutSvg} {...props} />
+);
+export const ClockIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
+    <Icon component={ClockSvg} {...props} />
+);
+
+export const ArrowRightIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
+    <Icon component={ArrowRightSvg} {...props} />
 );
 

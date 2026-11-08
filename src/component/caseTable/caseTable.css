@@ -1,0 +1,120 @@
+.table-wrap {
+    overflow: auto;
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 760px;
+        text-align: left;
+
+        th {
+            background-color: #f9faf6;
+            height: 36px;
+            font-size: 12px;
+            padding: 0 14px;
+            border-bottom: 1px solid #ebeee7;
+        }
+
+        td {
+            font-size: 12px;
+            color: #556377;
+            white-space: nowrap;
+            border-bottom: 1px solid #eff1eb;
+            padding: 12px 14px;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0
+        }
+
+        tbody {
+            .case-title {
+                display: block;
+                color: #34445b;
+                font-size: 10px
+            }
+
+            .person {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                i {
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 100%;
+                    background-color: #ebefe6;
+                    font-size: 10px;
+                    font-style: normal;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .status {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                border-radius: 16px;
+                padding: 4px 8px;
+                font-size: 10px;
+                white-space: nowrap;
+                background: #eff1eb;
+                color: #6f7b8b;
+
+                i {
+                    width: 6px;
+                    height: 6px;
+                    background: currentColor;
+                    border-radius: 100%;
+                }
+            }
+
+            .priority {
+                font-size: 9px;
+                color: #788393;
+
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 100%;
+                    margin-right: 6px;
+                    background: #bac3ce
+                }
+
+                &.high {
+                    color: #c54d4e;
+
+                    &::before {
+                        background: #e16364;
+                        ;
+                    }
+                }
+
+                &.medium {
+                    color: #b07b22
+                }
+
+                &.medium:before {
+                    background: #e6ad45
+                }
+
+                &.low {
+                    color: #768696
+                }
+            }
+
+
+        }
+
+        td small {
+            display: block;
+            color: #9ba5b2;
+            font-size: 9px;
+            margin-top: 4px
+        }
+    }
+}

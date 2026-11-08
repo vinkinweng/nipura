@@ -7,7 +7,7 @@ const { Content } = Layout;
 const LayoutContent: React.FC = () => {
     const { token } = theme.useToken();
     return (
-        <Content style={{ background: token.colorBgContainer, borderRadius: token.borderRadiusLG, }}>
+        <Content style={{ borderRadius: token.borderRadiusLG, }} className="layout-content">
             <Outlet />
         </Content>
     );

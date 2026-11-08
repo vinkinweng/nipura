@@ -1,0 +1,48 @@
+.stat-card {
+    padding: 17px 17px 15px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    min-height: 131px;
+    position: relative;
+
+    .stat-icon {
+        width: 30px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border-radius: 8px;
+        margin-bottom: 11px;
+
+        &.red {
+            background-color: #F8EAE7;
+            color: #A6453E;
+        }
+
+        &.orange {
+            background-color: #FFF3D6;
+            color: #9A6B16;
+        }
+
+        &.green {
+            background-color: #edf2e7;
+            color: #6f8f3d;
+        }
+    }
+
+    /* 文字不换行，超出隐藏 */
+    .stat-delta,
+    .stat-label {
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+}
