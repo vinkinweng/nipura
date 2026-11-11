@@ -6,10 +6,10 @@ type CustomIconComponentProps = GetProps<typeof Icon>;
 
 const AddSvg: React.FC = () => (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 16.5H13.5C14.3279 16.5 15 15.8279 15 15V5.25L11.25 1.5H4.5C3.67213 1.5 3 2.17213 3 3V6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M10.5 1.5V4.5C10.5 5.32787 11.1721 6 12 6H15" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M2.25 11.25H6.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M4.5 9V13.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
+        <path d="M3 16.5H13.5C14.3279 16.5 15 15.8279 15 15V5.25L11.25 1.5H4.5C3.67213 1.5 3 2.17213 3 3V6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M10.5 1.5V4.5C10.5 5.32787 11.1721 6 12 6H15" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M2.25 11.25H6.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M4.5 9V13.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
     </svg>
 
 );

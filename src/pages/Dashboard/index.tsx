@@ -5,6 +5,7 @@ import { TaskIcon, AddIcon, ClockIcon, WarnIcon, ArrowRightIcon } from "@/compon
 import { Progress } from 'antd';
 
 import CaseTable from "@/component/caseTable";
+import ContentHeader from '@/component/contentHeader';
 
 import "./dashboard.css"
 
@@ -34,6 +35,7 @@ const Dashboard: React.FC = () => {
     const priorityCases = initialCases.filter(c => c.priority === '高' || c.assignee === '未割当').slice(0, 4);
     return (
         < >
+            <ContentHeader title="管理者ダッシュボード" description="案件の状況と次の対応を確認できます。" createCaseButton />
             <div className="stats-grid">
                 <Stat Icon={TaskIcon} label="未対応案件" value="12" delta="担当者未設定 2 件" />
                 <Stat Icon={AddIcon} label="本日の新規受付" value="6" delta="前日比 +2 件" />

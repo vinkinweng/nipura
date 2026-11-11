@@ -1,0 +1,11 @@
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+button.ant-btn-primary {
+    background-color: #6f8f3d;
+    height: 36px;
+    font-size: 12px;
+    color: #fff;
+}
