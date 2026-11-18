@@ -39,10 +39,10 @@ function Cases() {
             <div className={style.toolbar}>
                 <Input className={style.search_input} size="medium" placeholder="案件名・施設・受付番号" prefix={<SearchOutlined />} />
                 <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                    <option>すべてのステータス</option>
-                    <option>受付済み</option>
-                    <option>対応中</option>
-                    <option>完了</option>
+                    <option value="all">すべてのステータス</option>
+                    <option value="Received">受付済み</option>
+                    <option value="progress">対応中</option>
+                    <option value="completion">完了</option>
                 </select>
                 <Button type="primary" className={style.search_button} icon={<FilterIcon size={15} />}> 絞り込み</Button>
             </div>
