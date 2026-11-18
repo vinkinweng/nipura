@@ -114,7 +114,11 @@ const ArrowRightSvg: React.FC = () => (
         <path d="m12 5 7 7-7 7" />
     </svg>
 )
-
+const FilterSvg: React.FC = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 3H2l8 9.46V19l4 2V12.46L22 3Z" />
+    </svg>
+)
 
 export const AddIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={AddSvg} {...props} />
@@ -161,4 +165,6 @@ export const ClockIcon: React.FC<Partial<CustomIconComponentProps>> = (props) =>
 export const ArrowRightIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={ArrowRightSvg} {...props} />
 );
-
+export const FilterIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
+    <Icon component={FilterSvg} {...props} />
+);
