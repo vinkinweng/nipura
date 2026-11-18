@@ -1,0 +1,39 @@
+.calendar_toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.calendar_switch,
+.view_switch {
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+.calendar_switch b {
+    font-size: 12px;
+    margin: 0 10px
+}
+
+.view_switch {
+    background: #eff1eb;
+    border-radius: 8px;
+    padding: 4px
+}
+
+.view_switch button {
+    border: 0;
+    border-radius: 5px;
+    background: none;
+    padding: 6px 11px;
+    color: #788596;
+    font-size: 9px
+}
+
+.view_switch button.active {
+    color: #58763a;
+    background: #fff;
+    box-shadow: 0 1px 3px #1a2c471a
+}
