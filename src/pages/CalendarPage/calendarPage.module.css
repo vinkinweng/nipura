@@ -12,9 +12,25 @@
     gap: 7px
 }
 
-.calendar_switch b {
+.calendar_switch .icon_btn {
+    width: 34px;
+    height: 34px;
+    color: #768395;
+    border: none;
+    background: transparent;
+}
+
+.calendar_switch .calendar_switch b {
     font-size: 12px;
-    margin: 0 10px
+}
+
+.small {
+    min-height: 30px;
+    color: #4e5c70;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #e1e5db;
+    padding: 0 10px;
 }
 
 .view_switch {
@@ -36,4 +52,123 @@
     color: #58763a;
     background: #fff;
     box-shadow: 0 1px 3px #1a2c471a
+}
+
+/* 周视图*/
+.week_grid {
+    min-width: 850px;
+    display: grid;
+    grid-template-columns: 55px repeat(7, minmax(105px, 1fr));
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+
+.time_label {
+    font-size: 10px;
+    color: #a4adb8;
+    text-align: right;
+    padding: 8px 8px 0 0;
+    border-bottom: 1px solid #f2f4ee
+}
+
+.day_head {
+    border-bottom: 1px solid var(--line);
+    border-left: 1px solid #eff1eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #748194;
+}
+
+.day_head small {
+    font-size: 10px;
+}
+
+.day_head b {
+    font-size: 16px;
+}
+
+.today {
+    color: #6b8c3d;
+    background: #f2f5eb;
+}
+
+.calendar_cell {
+    border-left: 1px solid #eff1eb;
+    border-bottom: 1px solid #f2f4ee;
+    padding: 4px;
+}
+
+.calendar_event {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-left: 4px solid #769348;
+    border-radius: 4px;
+    background-color: #f0f4ea;
+    padding: 6px;
+    font-size: 10px;
+    color: #566c56;
+}
+
+.urgent {
+    border-left-color: #dc6867;
+    background: #fff0ef
+}
+
+.calendar_event b,
+.calendar_event span,
+.calendar_event small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.event_done {
+    border-left-color: #a4adb8;
+    background: #f2f4ee;
+    color: black;
+}
+
+
+/* 左下角备注*/
+.calendar_note {
+    display: flex;
+    gap: 20px;
+    padding: 0 4px;
+    color: #7e8a9a;
+    font-size: 10px;
+}
+
+.calendar-note span {
+    display: flex;
+    gap: 6px;
+    align-items: center
+}
+
+.dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6f8f3d;
+    margin-right: 4px;
+    ;
+}
+
+.dot.green_dot {
+    background: #638a58;
+}
+
+.dot.gray_dot {
+    background: #b8c0cb;
+}
+
+.dot.red_dot {
+    background: #db5a5a;
 }
