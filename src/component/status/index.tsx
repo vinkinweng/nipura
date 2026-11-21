@@ -4,12 +4,12 @@ interface StatusProps {
     value: string
 }
 const statusLabels: Record<string, string> = {
-    Received: "受付済み",
+    received: "受付済み",
     progress: "対応中",
     completion: "完了",
 };
 const statusColors: Record<string, string> = {
-    Received: "amber",
+    received: "amber",
     progress: "blue",
     completion: "green",
 };

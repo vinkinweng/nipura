@@ -1,6 +1,7 @@
 import style from "./calendarPage.module.css"
 import React, { useState } from "react";
 import ContentHeader from "@/component/contentHeader";
+import Status from "@/component/status";
 import { ArrowRightIcon, ArrowLeftIcon } from "@/component/MyIcon";
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
@@ -23,11 +24,11 @@ function CalendarPage() {
         images?: Array<{ name: string; url: string }>;
     }
     const initialCases: CaseRecord[] = [
-        { id: 'NP-261024', customer: '東京中央医療センター', title: '空調設備の異音・停止', facility: '東京都文京区', assignee: '佐藤 美咲', status: '作業手配済み', priority: '高', date: '2026-11-21', time: '09:30', amount: 248000, kind: '修理' },
-        { id: 'NP-261023', customer: '大阪みなみ病院', title: '給湯設備の温度異常', facility: '大阪府大阪市', assignee: '高橋 健', status: '受付済み', priority: '中', date: '2026-11-16', time: '11:00', amount: 96000, kind: '修理' },
-        { id: 'NP-261022', customer: '名古屋市立大学病院', title: '定期点検・部品交換', facility: '愛知県名古屋市', assignee: '鈴木 由紀', status: '対応中', priority: '中', date: '2026-11-18', time: '13:30', amount: 182000, kind: '点検' },
-        { id: 'NP-261021', customer: '横浜北部クリニック', title: 'ポンプからの水漏れ', facility: '神奈川県横浜市', assignee: '田中 翔', status: '部品確認中', priority: '高', date: '2026-11-18', time: '15:00', amount: 134000, kind: '修理' },
-        { id: 'NP-261020', customer: '京都リハビリテーション病院', title: '換気設備の定期点検', facility: '京都府京都市', assignee: '佐藤 美咲', status: '完了', priority: '低', date: '2026-11-21', time: '10:00', amount: 72000, kind: '点検' },
+        { id: 'NP-261024', customer: '東京中央医療センター', title: '空調設備の異音・停止', facility: '東京都文京区', assignee: '佐藤 美咲', status: 'received', priority: '高', date: '2026-11-21', time: '09:30', amount: 248000, kind: '修理' },
+        { id: 'NP-261023', customer: '大阪みなみ病院', title: '給湯設備の温度異常', facility: '大阪府大阪市', assignee: '高橋 健', status: 'progress', priority: '中', date: '2026-11-16', time: '11:00', amount: 96000, kind: '修理' },
+        { id: 'NP-261022', customer: '名古屋市立大学病院', title: '定期点検・部品交換', facility: '愛知県名古屋市', assignee: '鈴木 由紀', status: 'completion', priority: '中', date: '2026-11-18', time: '13:30', amount: 182000, kind: '点検' },
+        { id: 'NP-261021', customer: '横浜北部クリニック', title: 'ポンプからの水漏れ', facility: '神奈川県横浜市', assignee: '田中 翔', status: 'completion', priority: '高', date: '2026-11-18', time: '15:00', amount: 134000, kind: '修理' },
+        { id: 'NP-261020', customer: '京都リハビリテーション病院', title: '換気設備の定期点検', facility: '京都府京都市', assignee: '佐藤 美咲', status: 'received', priority: '低', date: '2026-11-21', time: '10:00', amount: 72000, kind: '点検' },
     ];
 
     const keyOf = (date: Dayjs) => date.format('YYYY-MM-DD');
@@ -122,6 +123,26 @@ function CalendarPage() {
 
                 </div>
             }
+            {view === 'list' && <>
+                <div className={style.list_view_heading}>
+                    <span>日時</span><span>案件・施設</span><span>担当者</span><span>状態</span>
+                </div>
+                {entries.length ? entries.map(event =>
+                    <button key={event.id} className={style.calendar_list_row} >
+                        <span className={style.list_date}>
+                            <b>{dayjs(event.date).format('MM/DD')}</b>
+                            <small>{event.time}</small>
+                        </span>
+                        <span className={style.list_case}>
+                            <b>{event.title}</b>
+                            <small>{event.id} · {event.customer} · {event.facility}</small>
+                        </span>
+                        <span className={style.list_assignee}>{event.assignee}</span>
+                        <span className={style.list_state}><Status value={event.status} /></span>
+                    </button>) :
+                    <div className={style.empty}>この週に予定されている案件はありません。</div>
+                }
+            </>}
             <div className={style.calendar_note}>
                 <span>
                     <i className={`${style.dot} ${style.green_dot}`} />訪問・作業予定
