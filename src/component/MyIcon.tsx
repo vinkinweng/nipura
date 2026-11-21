@@ -129,6 +129,14 @@ const ArrowLeftSvg = () => (
 );
 
 
+const CheckSvg = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#53614D"
+        strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 6 9 17l-5-5" />
+    </svg>
+);
+
+
 export const AddIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={AddSvg} {...props} />
 );
@@ -179,4 +187,9 @@ export const FilterIcon: React.FC<Partial<CustomIconComponentProps>> = (props) =
 );
 export const ArrowLeftIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
     <Icon component={ArrowLeftSvg} {...props} />
+)
+
+
+export const CheckIcon: React.FC<Partial<CustomIconComponentProps>> = (props) => (
+    <Icon component={CheckSvg} {...props} />
 )
