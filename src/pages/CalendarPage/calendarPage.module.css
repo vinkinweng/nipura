@@ -172,3 +172,103 @@
 .dot.red_dot {
     background: #db5a5a;
 }
+
+.month_grid {
+    display: grid;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    min-width: 700px;
+}
+
+
+.month_weekdays,
+.month_days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.month_weekdays>div {
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background-color: #f8f9f5;
+    border-bottom: 1px solid #e7ebe2;
+    color: #7d8874;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.month_day {
+    min-height: 105px;
+    padding: 6px;
+    border-right: 1px solid #edf0e8;
+    border-bottom: 1px solid #edf0e8;
+    background: #fff;
+}
+
+.month_day:nth-child(7n) {
+    border-right: 0
+}
+
+.month_day.outside {
+    background: #fafbf8;
+    color: #adb4a8;
+}
+
+.month_day.today {
+    background: #f5f8ef
+}
+
+.month_date {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: #5c6655;
+    font-size: 10px;
+}
+
+.month_day.today .month_date {
+    background: #718e43;
+    color: #fff;
+    font-weight: 700;
+}
+
+.month_events {
+    display: grid;
+    gap: 4px;
+    margin-top: 4px
+}
+
+.month_event {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    width: 100%;
+    padding: 4px;
+    border: none;
+    border-left: 2px solid #799744;
+    border-radius: 4px;
+    background-color: #f0f4ea;
+    color: #546b3d;
+    text-align: left;
+    font-size: 10px;
+    overflow: hidden;
+}
+
+.month_event.urgent {
+    border-left-color: #d16c60;
+    background: #fff1ed;
+    color: #8d5248
+}
+
+
+
+.month_event span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}

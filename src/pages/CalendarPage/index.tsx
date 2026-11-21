@@ -54,6 +54,9 @@ function CalendarPage() {
         const dateKey = keyOf(date);
         return initialCases.filter(item => item.date === dateKey).sort((a, b) => a.time.localeCompare(b.time));
     };
+
+    const monthGridStart = anchor.startOf('month').startOf('isoWeek');
+    const monthDates = Array.from({ length: 42 }, (_, index) => monthGridStart.add(index, 'day'));
     return (
         <>
             <ContentHeader title="スケジュール表" description="案件の状況と次の対応を確認できます" />
@@ -96,8 +99,29 @@ function CalendarPage() {
                         </React.Fragment>)}
                 </div>
             }
-            {/* {view === 'month' && <MonthView />}
-            {view === 'list' && <ListView />} */}
+            {view === 'month' &&
+                <div className={style.month_grid}>
+                    <div className={style.month_weekdays}>
+                        {weekNames.map(day => <div key={day}>{day}</div>)}
+                    </div>
+                    <div className={style.month_days}>
+                        {monthDates.map(d => {
+                            const events = getEvents(d);
+                            return <div key={keyOf(d)}
+                                className={`${style.month_day} ${!d.isSame(anchor, 'month') ? style.outside : ''} ${isToday(d) ? style.today : ''}`}>
+                                <div className={style.month_date}>{d.date()}</div>
+                                <div className={style.month_events}>{events.slice(0, 3).map(event =>
+                                    <button key={event.id} className={`${style.month_event} ${event.priority === '高' ? style.urgent : ''} ${event.status === '完了' ? style.event_done : ''}`} title={`${event.time} · ${event.customer} · ${event.title}`}>
+                                        <b>{event.time}</b>
+                                        <span>{event.customer}</span>
+                                    </button>)}{events.length > 3 &&
+                                        <small className="more-events">+{events.length - 3}件</small>}</div>
+                            </div>
+                        })}
+                    </div>
+
+                </div>
+            }
             <div className={style.calendar_note}>
                 <span>
                     <i className={`${style.dot} ${style.green_dot}`} />訪問・作業予定
