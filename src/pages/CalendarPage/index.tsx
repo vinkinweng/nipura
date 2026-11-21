@@ -58,16 +58,22 @@ function CalendarPage() {
 
     const monthGridStart = anchor.startOf('month').startOf('isoWeek');
     const monthDates = Array.from({ length: 42 }, (_, index) => monthGridStart.add(index, 'day'));
+    const shift = (direction: -1 | 1) => setAnchor(current =>
+        view === 'month' ? current.startOf('month').add(direction, 'month') : current.add(direction, 'week')
+    );
+    const rangeLabel = weekStart.format('YYYY年M月D日') + ' – ' + weekEnd.format('M月D日');
+    const title = view === 'month' ? anchor.format('YYYY年M月')
+        : view === 'list' ? rangeLabel + ' · ' + entries.length + '件' : rangeLabel;
     return (
         <>
             <ContentHeader title="スケジュール表" description="案件の状況と次の対応を確認できます" />
             <div className={style.calendar_toolbar}>
                 <div className={style.calendar_switch}>
-                    <button className={style.icon_btn} ><ArrowLeftIcon size={16} /></button>
-                    <button className={style.icon_btn}><ArrowRightIcon size={16} /></button>
-                    <b>2026年10月26日 – 11月1日</b>
+                    <button className={style.icon_btn} onClick={() => shift(-1)}> <ArrowLeftIcon size={16} /></button>
+                    <button className={style.icon_btn} onClick={() => shift(1)}> <ArrowRightIcon size={16} /></button>
+                    <b>{title}</b>
                     <button className={style.small}>今日</button>
-                </div>
+                </div >
                 <div className={style.view_switch}>
                     <button className={view === 'week' ? style.active : ''} onClick={() => setView('week')}>週</button>
                     <button className={view === 'month' ? style.active : ''} onClick={() => setView('month')}>月</button>
@@ -100,7 +106,8 @@ function CalendarPage() {
                         </React.Fragment>)}
                 </div>
             }
-            {view === 'month' &&
+            {
+                view === 'month' &&
                 <div className={style.month_grid}>
                     <div className={style.month_weekdays}>
                         {weekNames.map(day => <div key={day}>{day}</div>)}
@@ -123,26 +130,28 @@ function CalendarPage() {
 
                 </div>
             }
-            {view === 'list' && <>
-                <div className={style.list_view_heading}>
-                    <span>日時</span><span>案件・施設</span><span>担当者</span><span>状態</span>
-                </div>
-                {entries.length ? entries.map(event =>
-                    <button key={event.id} className={style.calendar_list_row} >
-                        <span className={style.list_date}>
-                            <b>{dayjs(event.date).format('MM/DD')}</b>
-                            <small>{event.time}</small>
-                        </span>
-                        <span className={style.list_case}>
-                            <b>{event.title}</b>
-                            <small>{event.id} · {event.customer} · {event.facility}</small>
-                        </span>
-                        <span className={style.list_assignee}>{event.assignee}</span>
-                        <span className={style.list_state}><Status value={event.status} /></span>
-                    </button>) :
-                    <div className={style.empty}>この週に予定されている案件はありません。</div>
-                }
-            </>}
+            {
+                view === 'list' && <>
+                    <div className={style.list_view_heading}>
+                        <span>日時</span><span>案件・施設</span><span>担当者</span><span>状態</span>
+                    </div>
+                    {entries.length ? entries.map(event =>
+                        <button key={event.id} className={style.calendar_list_row} >
+                            <span className={style.list_date}>
+                                <b>{dayjs(event.date).format('MM/DD')}</b>
+                                <small>{event.time}</small>
+                            </span>
+                            <span className={style.list_case}>
+                                <b>{event.title}</b>
+                                <small>{event.id} · {event.customer} · {event.facility}</small>
+                            </span>
+                            <span className={style.list_assignee}>{event.assignee}</span>
+                            <span className={style.list_state}><Status value={event.status} /></span>
+                        </button>) :
+                        <div className={style.empty}>この週に予定されている案件はありません。</div>
+                    }
+                </>
+            }
             <div className={style.calendar_note}>
                 <span>
                     <i className={`${style.dot} ${style.green_dot}`} />訪問・作業予定
