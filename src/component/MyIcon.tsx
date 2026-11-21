@@ -38,8 +38,8 @@ const CalendarSvg: React.FC = () => (
 
 const HomeSvg: React.FC = () => (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11.25 15.75V9.75C11.25 9.33606 10.9139 9 10.5 9H7.5C7.08606 9 6.75 9.33606 6.75 9.75V15.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
-        <path d="M2.25 7.49998C2.24989 7.05832 2.44443 6.63906 2.78175 6.35398L8.03175 1.85473C8.59079 1.38225 9.40921 1.38225 9.96825 1.85473L15.2183 6.35398C15.5556 6.63906 15.7501 7.05832 15.75 7.49998V14.25C15.75 15.0778 15.0779 15.75 14.25 15.75H3.75C2.92213 15.75 2.25 15.0778 2.25 14.25V7.49998" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="#53614D" />
+        <path d="M11.25 15.75V9.75C11.25 9.33606 10.9139 9 10.5 9H7.5C7.08606 9 6.75 9.33606 6.75 9.75V15.75" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
+        <path d="M2.25 7.49998C2.24989 7.05832 2.44443 6.63906 2.78175 6.35398L8.03175 1.85473C8.59079 1.38225 9.40921 1.38225 9.96825 1.85473L15.2183 6.35398C15.5556 6.63906 15.7501 7.05832 15.75 7.49998V14.25C15.75 15.0778 15.0779 15.75 14.25 15.75H3.75C2.92213 15.75 2.25 15.0778 2.25 14.25V7.49998" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" />
     </svg>
 );
 const PeopleSvg: React.FC = () => (
