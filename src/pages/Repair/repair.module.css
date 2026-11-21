@@ -1,0 +1,38 @@
+.form_body {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    max-width: 900px !important;
+    padding: 18px 20px;
+}
+
+.form_section_title {
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: #44546b;
+    border-bottom: 1px solid #edefe8;
+    padding: 0 0 10px;
+    margin: 0 0 14px;
+}
+
+.form_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+}
+
+
+
+.intake_full {
+    grid-column: 1 / -1;
+}
+
+.form_actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #edefe8;
+    padding-top: 14px;
+
+}
